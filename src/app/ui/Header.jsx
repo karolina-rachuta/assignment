@@ -50,7 +50,7 @@ function Header() {
                 </div>
             </div>
 
-            <div className="du_nav-bottom du_container flex flex-col items-center justify-between gap-2 w-full lg:flex-row lg:justify-start">
+            <div className="du_nav-bottom du_container flex flex-col items-center justify-between gap-6 w-full lg:flex-row lg:justify-start">
                 <div className="flex items-center justify-between gap-2 w-full lg:w-12 p-2 pt-5 lg:pt-2">
                     <Link href="https://du.ae/">
                         <Image
@@ -84,7 +84,7 @@ function Header() {
                 <nav
                     className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu lg:flex flex-col lg:flex-row  items-center justify-between w-full gap-10`}
                 >
-                    <div className="flex flex-col lg:flex-row items-center text-center justify-between lg:gap-3 w-full lg:w-3/6">
+                    <div className="flex flex-col lg:flex-row items-center text-center justify-between lg:gap-3 w-full lg:w-3/5">
                         <a href="" className="mobile-link lg:desktop-link">
                             Devices
                         </a>
@@ -105,7 +105,7 @@ function Header() {
                         </a>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-2 w-full lg:w-2/6 text-center lg:m-2">
+                    <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-2 w-full lg:w-2/5 text-center lg:m-2">
                         <a href="" className="mobile-link lg:desktop-link">
                             Quick Pay
                         </a>

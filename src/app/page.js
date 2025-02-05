@@ -10,21 +10,20 @@ import Terms from './ui/Terms';
 import Footer from './ui/Footer';
 
 export default function Home() {
-
     return (
         <>
             <Header />
             <main>
                 <Hero />
-                <Offers />
+                {/* <Offers />
                 <Plans />
                 <PowerPlan />
                 <PhoneOffer />
                 <Reasons />
                 <FAQs />
-                <Terms />
+                <Terms /> */}
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
