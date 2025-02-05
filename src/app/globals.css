@@ -3,19 +3,124 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --text-color: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background: var(--background);
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+@layer components {
+    .du_container {
+        max-width: 1266px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .du_nav {
+        width: 100%;
+        background: linear-gradient(315deg, #753bbd, #00a9ce 67.21%, #00a9ce);
+    }
+
+    .du_nav-top {
+        height: 30px;
+    }
+
+    .du_nav-bottom {
+        min-height: 81px;
+        margin-inline: 10px;
+    }
+
+    .active {
+        opacity: 1;
+        background-color: #0081ab;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        padding: 0 10px;
+    }
+
+    .logo {
+        width: 100%;
+        min-width: 39px;
+        max-width: 50px;
+        height: auto;
+        max-height: 50px;
+        min-width: 39px;
+    }
+
+    .icon {
+        width: 100%;
+        max-width: 20px;
+        height: auto;
+        max-height: 20px;
+        color: #ffffff;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .hamburger-line {
+        width: 20px;
+        height: 2px;
+        background-color: var(--text-color);
+        border-radius: 5px;
+    }
+
+    .mobile-menu {
+        background: linear-gradient(135.4deg, #c724b1, #753bbd 30.52%, #00a9ce);
+        color: #fff;
+    }
+
+    .mobile-link {
+        border-bottom: 1px solid rgba(245, 245, 245, 0.9);
+        width: 100%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    @media (max-width: 1024px) {
+        .mobile-link:hover {
+            background-color: #c724b1;
+        }
+        .mobile-link:last-child {
+            border-bottom: none;
+        }
+        .mobile-link:first-child {
+            padding-top: 10px;
+        }
+    }
+
+    .desktop-menu {
+        background: #fff;
+        color: var(--text-color);
+        height: auto;
+    }
+
+    .desktop-link {
+        border-bottom: 2px solid transparent;
+        padding: 0;
+        width: auto;
+    }
+    @media (min-width: 1025px) {
+        .desktop-link:hover {
+            border-bottom: 2px solid #333;
+        }
+    }
 }
