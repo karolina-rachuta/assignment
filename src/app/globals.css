@@ -22,6 +22,12 @@ body {
     margin: 0 auto;
 }
 
+@layer utilities {
+    .text-shadow {
+        text-shadow: 2px 2px #8d007c;
+    }
+}
+
 @layer components {
     .du_container {
         max-width: 1266px;
@@ -53,21 +59,61 @@ body {
         padding: 0 10px;
     }
 
-    .logo {
-        width: 100%;
-        min-width: 39px;
-        max-width: 50px;
-        height: auto;
-        max-height: 50px;
-        min-width: 39px;
-    }
-
     .icon {
         width: 100%;
         max-width: 25px;
         height: auto;
         max-height: 25px;
         color: #ffffff;
+    }
+
+    .basket-icon::after {
+        content: '1';
+        color: #fff;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 12px;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background-color: #c724b1;
+        z-index: 10;
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        text-align: center;
+    }
+
+    .login-border {
+        background: linear-gradient(45deg, #824bc7 6%, #d92cc1 53%);
+        border-radius: 7px;
+        color: #c700b1;
+        padding: 10px 25px 10px 25px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .login-border::before {
+        content: '';
+        background: white;
+        position: absolute;
+        display: inline-block;
+        height: 90%;
+        width: 95%;
+        border-radius: 5px;
+        z-index: -1;
+    }
+
+    .login-border::before:hover {
+        content: '';
+        background: transparent;
+    }
+
+    .login-border:hover {
+        color: #fff;
     }
 
     .hamburger {
@@ -88,14 +134,13 @@ body {
         color: #fff;
     }
 
-    .mobile-link {
-        border-bottom: 1px solid rgba(245, 245, 245, 0.9);
-        width: 100%;
-        padding-bottom: 10px;
-        padding-top: 10px;
-    }
-
     @media (max-width: 1024px) {
+        .mobile-link {
+            border-bottom: 1px solid rgba(245, 245, 245, 0.9);
+            width: 100%;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
         .mobile-link:hover {
             background-color: #c724b1;
         }
@@ -118,6 +163,7 @@ body {
         padding: 0;
         width: auto;
     }
+
     @media (min-width: 1025px) {
         .desktop-link:hover {
             border-bottom: 2px solid #333;
@@ -128,23 +174,28 @@ body {
 /* Hero */
 
 .hero-bg-image {
-    background-image: url(../../public/bg.webp);
+    background-image: url(../../public/images/bg-mobile.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% center;
+    background-position: 80% center;
     width: 100%;
     height: 100%;
-    min-height: 300px;
+    min-height: 350px;
+
+    @media screen and (min-width: 650px) {
+        background-image: url(../../public/images/bg.webp);
+        background-position: 50% center;
+    }
 }
 
 .sticker-offer {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: #c724b1;
+    background: linear-gradient(0deg, #9e38b2 1%, #c700b1 35%, #c700b1);
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 15px;
+    right: 0;
 
     @media screen and (min-width: 680px) {
         width: 150px;
@@ -153,7 +204,7 @@ body {
         right: 0;
     }
 
-    @media screen and (min-width: 1030px) {
+    @media screen and (min-width: 768px) {
         width: 200px;
         height: 200px;
         top: 40px;
@@ -173,9 +224,29 @@ body {
     background: linear-gradient(45deg, #3e0a7e, #652caa 17%, #00a9ce);
 }
 
-.color {
+.color-gradient {
     background-image: linear-gradient(45deg, #3e0a7e, #652caa 17%, #00a9ce);
     background-clip: text;
     color: transparent;
     display: inline-block;
+}
+
+.offer-border {
+    background: linear-gradient(45deg, #3e0a7e, #652caa 17%, #00a9ce);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.offer-border::before {
+    content: '';
+    background: white;
+    position: absolute;
+    display: inline-block;
+    height: 93%;
+    width: 98%;
+    border-radius: 3px;
+    z-index: -1;
 }

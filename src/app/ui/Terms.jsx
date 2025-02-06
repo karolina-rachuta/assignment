@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function Terms() {
-    return <section>Terms & conditions</section>;
+  return <section>Terms & conditions</section>
 }
 
-export default Terms;
+export default Terms

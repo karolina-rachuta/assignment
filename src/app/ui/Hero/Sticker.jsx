@@ -1,27 +1,32 @@
-import React from 'react';
-import Image from 'next/image';
-import Smile from '@/../public/smile.png';
+import React from 'react'
+import Image from 'next/image'
+import Smile from '@/../public/images/smile.png'
 
 function Sticker() {
     return (
         <div>
-            <div className="sticker-offer flex text-white flex-col items-center justify-center gap-1 w-full">
-                <h2 className=" text-xs sm:text-base lg:text-xl font-semibold text-center">
+            <div className="sticker-offer flex w-full flex-col items-center justify-center gap-1 p-4 text-white">
+                <h2 className="text-shadow text-center text-xs font-semibold sm:text-base md:text-xl">
                     Limited <br /> time offer!
                 </h2>
-                <div className="flex flex-col text-[10px] sm:text-[12px] tracking-tighter leading-none lg:text-[14px] bg-white rounded-full font-bold text-blue-800  px-1 sm:px-4 lg:px-5 py-2">
-                    <div className="flex text-center justify-center leading-none items-center">
-                        <Image src={Smile} className="w-3" />
+                <div className="flex flex-col rounded-full bg-white px-1 py-2 text-[10px] font-bold leading-none tracking-tighter text-[#3e5aac] sm:px-4 sm:text-[12px] md:px-5 md:text-[14px]">
+                    <div className="flex items-center justify-center text-center leading-none">
+                        <Image
+                            src={Smile}
+                            alt="Smiley face icon"
+                            className="w-3"
+                        />
                         <p className="leading-none">the</p>
                     </div>
                     <p className="text-center leading-none">ENTERTAINER</p>
                 </div>
-                <h3 className="text-center text-[10px] sm:text-xs lg:text-lg">
-                    FREE with select <br /> Power Plans
+                <h3 className="text-center text-[10px] leading-none sm:text-xs md:text-lg">
+                    <p className="leading-tight">FREE with select</p>
+                    <p className="leading-tight">Power Plans</p>
                 </h3>
             </div>
         </div>
-    );
+    )
 }
 
-export default Sticker;
+export default Sticker

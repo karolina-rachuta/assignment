@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function FAQs() {
-    return <section>FAQs</section>;
+  return <section>FAQs</section>
 }
 
-export default FAQs;
+export default FAQs

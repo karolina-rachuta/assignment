@@ -1,38 +1,49 @@
-'use client';
-import React from 'react';
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '@/../public/logo.png';
-import Magnifier from '@/../public/magnifier.png';
-import Basket from '@/../public/basket.png';
-import Close from '@/../public/close.png';
-import BasketMobile from '@/../public/basket-white.png';
+'use client'
+import React from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import Logo from '@/../public/images/logo.png'
+import Magnifier from '@/../public/images/magnifier.png'
+import Basket from '@/../public/images/basket.png'
+import Close from '@/../public/images/close.png'
+import BasketMobile from '@/../public/images/basket-white.png'
 
 function Header() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const [isConsumerWebsite, setIsConsumerWebsite] = useState(true)
 
     function handleMenu() {
-        setIsOpen((prev) => !prev);
-        console.log(isOpen);
+        setIsOpen((prev) => !prev)
     }
 
     return (
-        <header className="flex items-center flex-col w-full">
+        <header className="flex w-full flex-col items-center">
             <div className="du_nav flex items-center justify-center">
-                <div
-                    className="du_container w-full du_nav-top flex justify-between items-center text-white
-"
-                >
-                    <div className="flex justify-between items-center gap-3">
-                        <a href="" className="active">
+                <div className="du_container du_nav-top flex w-full items-center justify-between p-2 text-white">
+                    <div className="flex items-center justify-between gap-3">
+                        <a
+                            href=""
+                            className={`${isConsumerWebsite ? 'active' : 'opacity-50'} pl-2`}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setIsConsumerWebsite(true)
+                            }}
+                        >
                             Consumer
                         </a>
-                        <a href="" className="opacity-50">
+                        <a
+                            href=""
+                            className={`${!isConsumerWebsite ? 'active' : 'opacity-50'}`}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setIsConsumerWebsite(false)
+                            }}
+                        >
                             Business
                         </a>
                     </div>
-                    <div className="flex justify-between items-center gap-3 m-2">
+                    <div className="m-2 flex items-center justify-between gap-3">
                         <a href="">
                             <Image
                                 src={Magnifier}
@@ -50,11 +61,11 @@ function Header() {
                 </div>
             </div>
 
-            <div className="du_nav-bottom du_container flex flex-col items-center justify-between gap-6 w-full lg:flex-row lg:justify-start">
-                <div className="flex items-center justify-between gap-2 w-full lg:w-12 p-2 pt-5 lg:pt-2">
+            <div className="du_nav-bottom du_container flex w-full flex-col items-center justify-between gap-6 lg:flex-row lg:justify-start">
+                <div className="flex w-full items-center justify-between gap-2 p-2 pt-5 lg:w-12 lg:pt-2">
                     <Link href="https://du.ae/">
                         <Image
-                            className="logo"
+                            className="max-h-autp max-w-[40px] lg:max-w-[50px]"
                             src={Logo}
                             alt="Logo du"
                             width="50"
@@ -72,7 +83,7 @@ function Header() {
                         />
                     ) : (
                         <div
-                            className="hamburger lg:hidden cursor-pointer"
+                            className="hamburger cursor-pointer lg:hidden"
                             onClick={handleMenu}
                         >
                             <span className="hamburger-line"></span>
@@ -82,9 +93,9 @@ function Header() {
                     )}
                 </div>
                 <nav
-                    className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu lg:flex flex-col lg:flex-row  items-center justify-between w-full gap-10`}
+                    className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu w-full flex-col items-center justify-between gap-10 lg:flex lg:flex-row`}
                 >
-                    <div className="flex flex-col lg:flex-row items-center text-center justify-between lg:gap-3 w-full lg:w-3/5">
+                    <div className="flex w-full flex-col items-center justify-between text-center lg:w-[50%] lg:flex-row lg:gap-1">
                         <a href="" className="mobile-link lg:desktop-link">
                             Devices
                         </a>
@@ -105,7 +116,7 @@ function Header() {
                         </a>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-2 w-full lg:w-2/5 text-center lg:m-2">
+                    <div className="flex w-full flex-col items-center justify-between text-center lg:m-2 lg:w-[38%] lg:flex-row lg:gap-1">
                         <a href="" className="mobile-link lg:desktop-link">
                             Quick Pay
                         </a>
@@ -118,35 +129,38 @@ function Header() {
 
                         <a
                             href=""
-                            className="lg:hidden mobile-link flex justify-center lg:desktop-link"
+                            className="mobile-link lg:desktop-link flex justify-center lg:hidden"
                         >
                             <Image
                                 src={BasketMobile}
-                                alt="Search"
+                                alt="Basket"
                                 className="icon"
                                 width="40"
                                 height="40"
                             />
                         </a>
 
-                        <a href="" className="hidden lg:block lg:desktop-link">
+                        <a
+                            href=""
+                            className="lg:desktop-link basket-icon relative hidden lg:block"
+                        >
                             <Image
                                 src={Basket}
-                                alt="Search"
-                                className="icon"
+                                alt="Basket"
+                                className="icon basket-icon relative"
                                 width="40"
                                 height="40"
                             />
                         </a>
 
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="" className="mobile-link lg:login-border">
                             Login
                         </a>
                     </div>
                 </nav>
             </div>
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function Reasons() {
-    return <section>REASONS</section>;
+  return <section>REASONS</section>
 }
 
-export default Reasons;
+export default Reasons
