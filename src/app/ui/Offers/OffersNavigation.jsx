@@ -10,7 +10,7 @@ function OffersNavigation() {
     return (
         <div className="-mt-20 flex h-20 w-full items-center bg-white bg-opacity-90">
             <div className="du_container flex h-full w-full items-center justify-evenly px-2">
-                <div className="flex h-full w-full items-center justify-evenly overflow-x-scroll text-base text-color">
+                <div className="xs:overflow-auto flex h-full w-full items-center justify-evenly overflow-x-scroll text-base text-color">
                     {[
                         'Device + Plan',
                         'Postpaid Plans',
