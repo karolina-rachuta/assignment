@@ -4,9 +4,9 @@ import Idea from '@/../public/images/idea.svg'
 
 function Reasons() {
     return (
-        <section className="w-full border-b-[1px] border-stone-300 bg-stone-100 py-20">
-            <div className="du_container flex items-start justify-center gap-6">
-                <div className="flex items-start justify-start gap-3">
+        <section className="w-full border-b-[1px] border-stone-300 bg-stone-100 py-10 md:py-20">
+            <div className="du_container flex flex-col items-start justify-center gap-6 px-2 md:flex-row">
+                <div className="flex w-full items-center justify-center gap-3 sm:min-w-[25%] md:w-auto md:items-start md:justify-start lg:min-w-[15%]">
                     <Image src={Idea} alt="Idea" className="w-[38px]" />
                     <div>
                         <p className="pb-1 text-sm">3 reasons why</p>
@@ -16,7 +16,7 @@ function Reasons() {
                         </h3>
                     </div>
                 </div>
-                <div className="flex items-start justify-start gap-3">
+                <div className="flex w-full items-center justify-center gap-3 md:w-auto md:items-start md:justify-start">
                     <p className="text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                         1
                     </p>
@@ -30,7 +30,7 @@ function Reasons() {
                         </p>
                     </div>
                 </div>
-                <div className="flex items-start justify-start gap-1">
+                <div className="flex w-full items-center justify-center gap-1 md:w-auto md:items-start md:justify-start">
                     <p className="text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                         2
                     </p>
@@ -43,7 +43,7 @@ function Reasons() {
                         </p>
                     </div>
                 </div>
-                <div className="flex items-start justify-start gap-1">
+                <div className="flex w-full items-center justify-center gap-1 md:w-auto md:items-start md:justify-start">
                     <p className="text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                         3
                     </p>

@@ -250,7 +250,8 @@ body {
     display: inline-block;
     height: 93%;
     width: 98.5%;
-    top: 1.55px;
+    top: 1.85px;
+    left: 1.85px;
     border-radius: 4px;
     z-index: -1;
 

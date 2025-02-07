@@ -71,43 +71,70 @@ const powerPlans = [
             'Roaming 2 GB'
         ],
         limitedOffer: true
+    },
+    {
+        id: 5,
+        price: '1000',
+        plan: '1000',
+        data: '120',
+        dataPromotion: 'Unlimited',
+        dataType: 'National data',
+        minutes: 2500,
+        minutePromotion: 'Unlimited',
+        additions: [
+            'No activation fee. Save AED 125',
+            '120 GB free data on WiFi UAE',
+            'Carry over data to next month',
+            'Amazon Prime on us',
+            'Free Internet Calling Pack',
+            'Roaming 5 GB'
+        ],
+        limitedOffer: true
     }
-    // {
-    //     id: 5,
-    //     price: '1000',
-    //     plan: '1000',
-    //     data: '120',
-    //     dataPromotion: 'Unlimited',
-    //     dataType: 'National data',
-    //     minutes: 2500,
-    //     minutePromotion: 'Unlimited',
-    //     additions: [
-    //         'No activation fee. Save AED 125',
-    //         '120 GB free data on WiFi UAE',
-    //         'Carry over data to next month',
-    //         'Amazon Prime on us',
-    //         'Free Internet Calling Pack',
-    //         'Roaming 5 GB'
-    //     ],
-    //     limitedOffer: true
-    // }
 ]
 function Carousel() {
     const [isClient, setIsClient] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [recordsPerPage, setRecordsPerPage] = useState(getRecordsPerPage())
 
     useEffect(() => {
         setIsClient(true)
+        const handleResize = () => {
+            setRecordsPerPage(getRecordsPerPage())
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     if (!isClient) return <div></div>
-    const handleDotClick = (page) => {
-        setActivePage(page)
+
+    function getRecordsPerPage() {
+        const width = window.innerWidth
+        if (width <= 680) return 1
+        if (width <= 881) return 2
+        if (width <= 881) return 3
+        if (width > 1141) return 4
+        return 4
+    }
+
+    const firstIndexOnThePage = (currentPage - 1) * recordsPerPage
+    const lastIndexOnThePage = firstIndexOnThePage + recordsPerPage
+
+    const records = powerPlans.slice(firstIndexOnThePage, lastIndexOnThePage)
+    const numberOfPages = Math.ceil(powerPlans.length / recordsPerPage)
+    const numbersPowerPlans = Array.from({
+        length: numberOfPages
+    }).map((_, index) => index + 1)
+
+    const changeCurrentPage = (page) => {
+        setCurrentPage(page)
     }
 
     return (
         <div className="flex w-full flex-col">
-            <div className="flex w-full items-start justify-start gap-6">
-                {powerPlans.map(
+            <div className="du_container flex w-full items-start justify-center gap-6 px-2">
+                {records.map(
                     (
                         {
                             id,
@@ -125,9 +152,9 @@ function Carousel() {
                     ) => (
                         <div
                             key={index}
-                            className="plan-border relative flex h-[650px] w-[310px] cursor-pointer flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white py-3 pl-6 pr-5 text-center shadow-md hover:bg-stone-200"
+                            className={`plan-border relative flex h-[620px] w-full max-w-[500px] cursor-pointer flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white py-3 pl-6 pr-5 text-center hover:bg-stone-200 sm:w-[50%] md:h-[670px] md:w-[30%] lg:h-[650px] lg:w-[25%] ${id === 2 && 'shadow-lg'}`}
                         >
-                            <div>
+                            <div className="w-full">
                                 <div className="w-full border-b-[1px] border-stone-300 pb-4 text-left">
                                     <h4 className="text-sm text-primaryColor">
                                         You Pay
@@ -154,28 +181,28 @@ function Carousel() {
                                 <div className="w-full border-b-[1px] border-stone-300 pb-3 pt-3 text-left">
                                     {dataPromotion !== '' ? (
                                         <p className="text-sm">
-                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:rotate-[25deg] after:bg-gray-300">
+                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[45%] after:h-[1px] after:w-full after:rotate-[25deg] after:bg-gray-300">
                                                 {data}
                                             </span>
                                             <span className="pr-2 text-xl font-bold text-black">
                                                 {dataPromotion === 'Unlimited'
                                                     ? dataPromotion
                                                     : `${dataPromotion} GB`}
-                                            </span>{' '}
+                                            </span>
                                             {dataType}
                                         </p>
                                     ) : (
                                         <p className="text-sm">
                                             <span className="pr-4 text-xl font-bold text-black">
                                                 {data} GB
-                                            </span>{' '}
+                                            </span>
                                             {dataType}
                                         </p>
                                     )}
 
                                     {minutePromotion !== '' ? (
                                         <p className="text-sm">
-                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:rotate-[18deg] after:bg-gray-300">
+                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[50%] after:h-[1px] after:w-full after:rotate-[15deg] after:bg-gray-300">
                                                 {minutes}
                                             </span>
                                             <span className="pr-4 text-xl font-bold text-black">
@@ -209,7 +236,7 @@ function Carousel() {
                                     ))}
                                 </ul>
                             </div>
-                            <div>
+                            <div className="w-full">
                                 {limitedOffer && (
                                     <div className="w-full border-t-[1px] border-stone-300 pb-4 pt-3 text-left">
                                         <p className="mb-1 mt-1 w-full max-w-[120px] rounded-lg bg-gradient-to-r from-[#652caa] via-[#c700b1] to-[#c700b1] px-1 pt-[1px] text-center text-xs text-white">
@@ -241,10 +268,15 @@ function Carousel() {
             </div>
 
             <div className="mt-4 flex items-center justify-center gap-2">
-                {[...Array(2)].map((_, index) => (
+                {numbersPowerPlans.map((number, index) => (
                     <button
                         key={index}
-                        className="mt-6 flex h-[10px] w-[10px] items-center justify-center rounded-full bg-primaryColor transition-all"
+                        onClick={() => changeCurrentPage(number)}
+                        className={`mt-6 flex items-center justify-center rounded-full transition-all ${
+                            currentPage === number
+                                ? 'h-[10px] w-[10px] bg-primaryColor'
+                                : 'h-[7px] w-[7px] bg-primaryColor opacity-50'
+                        }`}
                     />
                 ))}
             </div>

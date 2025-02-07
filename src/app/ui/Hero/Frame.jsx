@@ -12,9 +12,9 @@ function Frame() {
                 <span className="font-bold">Get The Enterainer on us,</span>{' '}
                 when you buy a Power Plan online.
             </h2>
-            <div className="p1 flex h-6 w-40 items-center justify-between gap-1 rounded-md bg-gradient-to-r from-[#142044] from-[1%] via-[#652caa] via-[14%] to-[#00a9ce]">
+            <div className="p1 flex h-7 w-40 items-center justify-between gap-1 rounded-md bg-gradient-to-r from-[#142044] from-[1%] via-[#652caa] via-[14%] to-[#00a9ce]">
                 <Image src={Fav} alt="Star icon" className="w-6 pl-[2px]" />
-                <div className="mr-[2px] flex h-5 w-36 items-center justify-center rounded-md rounded-l-none rounded-r bg-white text-xs font-semibold">
+                <div className="mr-[2px] flex h-6 w-36 items-center justify-center rounded-md rounded-l-none rounded-r bg-white text-xs font-semibold">
                     <p className="color-gradient">Greater value online</p>
                 </div>
             </div>

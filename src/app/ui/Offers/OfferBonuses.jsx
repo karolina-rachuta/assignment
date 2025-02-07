@@ -20,8 +20,11 @@ function OfferBonuses() {
                                 />
                                 <p>the</p>
                             </div>
-                            <p className="leading-none tracking-[-0.75px]">
-                                ENTERTAINER
+                            <p className="relative leading-none tracking-[-0.75px]">
+                                ENTERTAINER{' '}
+                                <sup className="absolute right-[-4px] top-[1px] text-[3px]">
+                                    TM
+                                </sup>
                             </p>
                         </div>
                     </div>
@@ -48,7 +51,7 @@ function OfferBonuses() {
                     <div className="flex flex-col items-start justify-center gap-1">
                         <div className="flex h-[17px] w-full max-w-[140px] items-center justify-center rounded-xl bg-gradient-to-r from-[#142044] via-[#652caa] to-[#00a9ce] text-center text-xs">
                             <Image src={Fav} alt="Star icon" className="w-5" />
-                            <div className="mr-[1.5px] flex h-[14px] w-48 items-center justify-center rounded-l-none rounded-r-3xl bg-white pt-[1px] text-xs font-semibold tracking-tighter">
+                            <div className="mr-[1.5px] flex h-[14.25px] w-48 items-center justify-center rounded-l-none rounded-r-3xl bg-white pt-[1px] text-xs font-semibold tracking-tighter">
                                 <p className="color-gradient rounded-[16px]">
                                     Greater value online
                                 </p>

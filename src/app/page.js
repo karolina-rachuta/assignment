@@ -1,7 +1,6 @@
 import Header from './ui/Header'
 import Hero from './ui/Hero'
 import Offers from './ui/Offers'
-import Plans from './ui/Plans'
 import PowerPlan from './ui/PowerPlan'
 import PhoneOffer from './ui/PhoneOffer'
 import Reasons from './ui/Reasons'

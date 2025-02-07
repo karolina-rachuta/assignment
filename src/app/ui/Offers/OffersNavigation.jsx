@@ -22,7 +22,7 @@ function OffersNavigation() {
                             key={index}
                             className={`flex h-full w-full items-center justify-center px-10 text-center transition-all duration-500 ease-in-out ${
                                 activeIndex === index &&
-                                '-mt-[2px] h-[86px] rounded-t-sm border-none bg-white font-semibold opacity-100'
+                                '-mt-[1px] h-[86.5px] rounded-t-md border-none bg-white font-semibold opacity-100'
                             }`}
                             onClick={() => handleClick(index)}
                         >

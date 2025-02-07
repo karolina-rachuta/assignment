@@ -14,11 +14,18 @@ function Sticker() {
                         <Image
                             src={Smile}
                             alt="Smiley face icon"
-                            className="absolute left-[20px] top-[-1px] w-[16px]"
+                            className="absolute left-[12px] top-[-1px] w-[16px]"
                         />
-                        <p className="text-xs leading-none">the</p>
+                        <p className="text-xs leading-none tracking-[-1px]">
+                            the
+                        </p>
                     </div>
-                    <p className="text-center leading-none">ENTERTAINER</p>
+                    <p className="relative text-center text-xs leading-none tracking-[-1px]">
+                        ENTERTAINER{' '}
+                        <sup className="absolute right-[-5px] top-[3px] text-[4px]">
+                            TM
+                        </sup>
+                    </p>
                 </div>
                 <h3 className="text-center text-[10px] leading-none sm:text-xs md:text-base">
                     <p className="leading-tight">FREE with select</p>
