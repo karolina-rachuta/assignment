@@ -15,7 +15,10 @@ export default {
         extend: {
             colors: {
                 background: 'var(--background)',
-                color: 'var(--text-color)'
+                color: 'var(--text-color)',
+                primaryColor: 'var(--primary-color)',
+                secondaryColor: 'var(--secondary-color)',
+                tertiaryColor: 'var(--tertiary-color)'
             }
         },
         plugins: []

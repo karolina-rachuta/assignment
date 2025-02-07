@@ -10,17 +10,17 @@ function Sticker() {
                     Limited <br /> time offer!
                 </h2>
                 <div className="flex flex-col rounded-full bg-white px-1 py-2 text-[10px] font-bold leading-none tracking-tighter text-[#3e5aac] sm:px-4 sm:text-[12px] md:px-5 md:text-[14px]">
-                    <div className="flex items-center justify-center text-center leading-none">
+                    <div className="relative flex items-center justify-center text-center leading-none">
                         <Image
                             src={Smile}
                             alt="Smiley face icon"
-                            className="w-3"
+                            className="absolute left-[20px] top-[-1px] w-[16px]"
                         />
-                        <p className="leading-none">the</p>
+                        <p className="text-xs leading-none">the</p>
                     </div>
                     <p className="text-center leading-none">ENTERTAINER</p>
                 </div>
-                <h3 className="text-center text-[10px] leading-none sm:text-xs md:text-lg">
+                <h3 className="text-center text-[10px] leading-none sm:text-xs md:text-base">
                     <p className="leading-tight">FREE with select</p>
                     <p className="leading-tight">Power Plans</p>
                 </h3>

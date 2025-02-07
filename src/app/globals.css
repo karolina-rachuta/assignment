@@ -6,6 +6,9 @@
     --background: #ffffff;
     --foreground: #171717;
     --text-color: #333;
+    --primary-color: #c724b1;
+    --secondary-color: #00a9ce;
+    --tertiary-color: #753bbd;
 }
 
 * {
@@ -51,7 +54,7 @@ body {
 
     .active {
         opacity: 1;
-        background-color: #0081ab;
+        background-color: #096583;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -192,7 +195,7 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: linear-gradient(0deg, #9e38b2 1%, #c700b1 35%, #c700b1);
+    background: linear-gradient(0deg, #9d31b3 1%, #c700b1 35%, #c700b1);
     position: absolute;
     top: 15px;
     right: 0;
@@ -205,8 +208,8 @@ body {
     }
 
     @media screen and (min-width: 768px) {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         top: 40px;
         right: -20px;
     }
@@ -245,12 +248,36 @@ body {
     background: white;
     position: absolute;
     display: inline-block;
-    height: 94%;
-    width: 99%;
+    height: 93%;
+    width: 98.5%;
+    top: 1.55px;
     border-radius: 4px;
     z-index: -1;
 
     @media screen and (max-width: 680px) {
         height: 97%;
     }
+}
+
+@media screen and (max-width: 602px) {
+    .overflow-x-scroll-xs {
+        overflow-x: scroll;
+    }
+}
+
+.plan-border::before {
+    content: '';
+    @apply rounded-l-lg;
+    background: linear-gradient(
+        180deg,
+        var(--primary-color) 15%,
+        var(--secondary-color) 35%
+    );
+    z-index: 1;
+    width: 9px;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
 }

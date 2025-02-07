@@ -15,14 +15,13 @@ export default function Home() {
             <main>
                 <Hero />
                 <Offers />
-                {/*<Plans />
-                                        <PowerPlan />
-                                        <PhoneOffer />
-                                        <Reasons />
-                                        <FAQs />
-                                        <Terms /> */}
+                <PowerPlan />
+                <PhoneOffer />
+                <Reasons />
+                <FAQs />
+                <Terms />
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

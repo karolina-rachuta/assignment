@@ -43,7 +43,7 @@ function Header() {
                             Business
                         </a>
                     </div>
-                    <div className="m-2 flex items-center justify-between gap-3">
+                    <div className="m-2 flex items-center justify-between gap-6">
                         <a href="">
                             <Image
                                 src={Magnifier}
