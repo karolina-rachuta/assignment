@@ -20,7 +20,7 @@ function OffersOption() {
                         <a
                             href="#"
                             key={index}
-                            className={`flex h-[71px] w-full max-w-[240px] items-center justify-center rounded-[6px] border border-stone-400 p-1 py-3 sm:h-full ${activePlanIndex === index && 'offer-border border-none font-semibold'}`}
+                            className={`flex h-[71px] w-full max-w-[240px] items-center justify-center rounded-[6px] border-2 border-stone-400 border-transparent p-1 py-3 duration-300 ease-in-out hover:border-2 hover:border-secondaryColor sm:h-full ${activePlanIndex === index && 'offer-border border-none font-semibold'}`}
                             onClick={() => handleActivePlanIndex(index)}
                         >
                             {item}

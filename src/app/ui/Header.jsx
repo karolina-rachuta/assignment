@@ -19,8 +19,8 @@ function Header() {
 
     return (
         <header className="flex w-full flex-col items-center">
-            <div className="du_nav flex items-center justify-center">
-                <div className="du_container du_nav-top flex w-full items-center justify-between p-2 px-2 text-[13px] font-[600] text-white md:px-4 lg:px-2">
+            <div className="du_nav flex w-full items-center justify-center">
+                <div className="du_container flex h-[30px] w-full items-center justify-between p-2 px-2 text-[13px] font-[600] text-white md:px-4 lg:px-2">
                     <div className="flex items-center justify-between gap-3">
                         <a
                             href=""
@@ -61,7 +61,7 @@ function Header() {
                 </div>
             </div>
 
-            <div className="du_nav-bottom du_container flex w-full flex-col items-center justify-between gap-6 text-[15px] font-[500] lg:flex-row lg:justify-start lg:gap-10">
+            <div className="du_container mx-[10px] flex min-h-[81px] w-full flex-col items-center justify-between gap-6 text-[15px] font-[500] lg:flex-row lg:justify-start lg:gap-10">
                 <div className="flex w-full items-center justify-between gap-2 px-2 pt-5 md:px-4 lg:w-12 lg:px-2 lg:pt-0">
                     <Link href="#">
                         <Image
@@ -73,29 +73,31 @@ function Header() {
                         />
                     </Link>
                     {isOpen ? (
-                        <Image
-                            src={Close}
-                            className="icon"
-                            alt="Close menu"
-                            width="40"
-                            height="40"
-                            onClick={handleMenu}
-                        />
+                        <div className="hamburger cursor-pointer px-2 md:px-4 lg:hidden lg:px-2">
+                            <Image
+                                src={Close}
+                                className="icon"
+                                alt="Close menu"
+                                width="40"
+                                height="40"
+                                onClick={handleMenu}
+                            />
+                        </div>
                     ) : (
                         <div
-                            className="hamburger cursor-pointer px-2 md:px-4 lg:hidden lg:px-2"
+                            className="flex cursor-pointer flex-col gap-[4px] px-2 md:px-4 lg:hidden lg:px-2"
                             onClick={handleMenu}
                         >
-                            <span className="hamburger-line"></span>
-                            <span className="hamburger-line"></span>
-                            <span className="hamburger-line"></span>
+                            <span className="h-[2px] w-[20px] rounded-[5px] bg-color"></span>
+                            <span className="h-[2px] w-[20px] rounded-[5px] bg-color"></span>
+                            <span className="h-[2px] w-[20px] rounded-[5px] bg-color"></span>
                         </div>
                     )}
                 </div>
                 <nav
                     className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu w-full flex-col items-center justify-between gap-10 lg:flex lg:flex-row`}
                 >
-                    <div className="flex w-full flex-col items-center justify-between text-center lg:w-[50%] lg:flex-row lg:gap-1">
+                    <div className="order-2 flex w-full flex-col items-center justify-between text-center lg:order-1 lg:w-[50%] lg:flex-row lg:gap-1">
                         <a href="" className="mobile-link lg:desktop-link">
                             Devices
                         </a>
@@ -116,7 +118,7 @@ function Header() {
                         </a>
                     </div>
 
-                    <div className="flex w-full flex-col items-center justify-between text-center lg:m-2 lg:w-[38%] lg:flex-row lg:gap-1">
+                    <div className="order-1 flex w-full flex-col items-center justify-between text-center lg:order-2 lg:m-2 lg:w-[38%] lg:flex-row lg:gap-1">
                         <a href="" className="mobile-link lg:desktop-link">
                             Quick Pay
                         </a>
@@ -142,7 +144,7 @@ function Header() {
 
                         <a
                             href=""
-                            className="lg:desktop-link basket-icon relative hidden lg:block"
+                            className="lg:desktop-link basket-icon relative hidden duration-300 ease-in-out hover:animate-bounce hover:border-b-transparent lg:block"
                         >
                             <Image
                                 src={Basket}

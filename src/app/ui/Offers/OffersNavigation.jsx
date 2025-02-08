@@ -20,7 +20,7 @@ function OffersNavigation() {
                         <a
                             href="#"
                             key={index}
-                            className={`flex h-full w-full items-center justify-center px-10 text-center transition-all duration-500 ease-in-out ${
+                            className={`flex h-full w-full items-center justify-center px-10 text-center transition-all duration-500 ease-in-out hover:bg-gray-100 ${
                                 activeIndex === index &&
                                 '-mt-[5px] h-[86.5px] rounded-t-md border-none bg-white font-semibold opacity-100'
                             }`}

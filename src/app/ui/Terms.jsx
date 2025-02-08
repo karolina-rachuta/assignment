@@ -9,7 +9,7 @@ function Terms() {
                 <h3 className="text-lg font-semibold">Terms & conditions</h3>
                 <Image
                     src={Plus}
-                    className="w-11"
+                    className="w-11 cursor-pointer duration-300 ease-in-out hover:scale-110"
                     alt="Plus to extend section"
                 />
             </div>
