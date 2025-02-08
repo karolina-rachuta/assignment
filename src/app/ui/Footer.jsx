@@ -3,17 +3,23 @@ import React from 'react'
 function Footer() {
     return (
         <footer className="w-full border-t-[2px] border-gray-300 bg-stone-100 py-10">
-            <div className="du_container flex flex-col items-center justify-between gap-2 px-2 md:flex-row">
+            <div className="du_container lg:px-2md:flex-row flex flex-col items-center justify-between gap-2 px-2 md:px-4">
                 <div className="flex gap-2">
-                    <p className="flex h-3 items-center border-r-[2px] border-stone-400 pr-2 text-xs">
+                    <a
+                        href="#"
+                        className="flex h-3 items-center border-r-[2px] border-stone-400 pr-2 text-xs"
+                    >
                         Site map
-                    </p>
-                    <p className="flex h-3 items-center border-r-[2px] border-stone-400 pr-2 text-xs">
+                    </a>
+                    <a
+                        href="#"
+                        className="flex h-3 items-center border-r-[2px] border-stone-400 pr-2 text-xs"
+                    >
                         Terms & conditions
-                    </p>
-                    <p className="flex h-3 items-center text-xs">
+                    </a>
+                    <a href="#" className="flex h-3 items-center text-xs">
                         Privacy policy
-                    </p>
+                    </a>
                 </div>
                 <div className="text-xs">
                     &copy; Copyright 2020 EITC. All rights reserved.

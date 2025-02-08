@@ -93,190 +93,217 @@ const powerPlans = [
     }
 ]
 function Carousel() {
-    const [isClient, setIsClient] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [recordsPerPage, setRecordsPerPage] = useState(getRecordsPerPage())
-
+    const slider = document.getElementById('slider')
     useEffect(() => {
-        setIsClient(true)
         const handleResize = () => {
             setRecordsPerPage(getRecordsPerPage())
         }
-
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    if (!isClient) return <div></div>
+    useEffect(() => {
+        const slider = document.getElementById('slider')
+
+        const handleScroll = () => {
+            const scrollLeft = slider.scrollLeft
+            const clientWidth = slider.clientWidth
+            const pageWidth = clientWidth
+            const newPage = Math.round(scrollLeft / pageWidth) + 1
+
+            if (newPage !== currentPage) {
+                setCurrentPage(newPage)
+            }
+        }
+        slider.addEventListener('scroll', handleScroll)
+        return () => slider.removeEventListener('scroll', handleScroll)
+    }, [currentPage])
 
     function getRecordsPerPage() {
         const width = window.innerWidth
         if (width <= 680) return 1
-        if (width <= 881) return 2
-        if (width <= 881) return 3
+        if (width <= 698) return 2
+        if (width <= 968) return 3
         if (width > 1141) return 4
         return 4
     }
 
-    const firstIndexOnThePage = (currentPage - 1) * recordsPerPage
-    const lastIndexOnThePage = firstIndexOnThePage + recordsPerPage
-
-    const records = powerPlans.slice(firstIndexOnThePage, lastIndexOnThePage)
     const numberOfPages = Math.ceil(powerPlans.length / recordsPerPage)
     const numbersPowerPlans = Array.from({
         length: numberOfPages
     }).map((_, index) => index + 1)
 
-    const changeCurrentPage = (page) => {
-        setCurrentPage(page)
+    const changeCurrentPage = (number) => {
+        const slider = document.getElementById('slider')
+        if (!slider) return
+
+        const scrollAmount = slider.clientWidth
+        if (number < currentPage) {
+            slider.scrollLeft -= scrollAmount
+        } else if (number > currentPage) {
+            slider.scrollLeft += scrollAmount
+        }
+
+        setCurrentPage(number)
     }
 
     return (
-        <div className="flex w-full flex-col">
-            <div className="du_container flex w-full items-start justify-center gap-6 px-2">
-                {records.map(
-                    (
-                        {
-                            id,
-                            price,
-                            plan,
-                            data,
-                            dataPromotion,
-                            dataType,
-                            minutes,
-                            minutePromotion,
-                            additions,
-                            limitedOffer
-                        },
-                        index
-                    ) => (
-                        <div
-                            key={index}
-                            className={`plan-border relative flex h-[620px] w-full max-w-[500px] cursor-pointer flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white py-3 pl-6 pr-5 text-center hover:bg-stone-200 sm:w-[50%] md:h-[670px] md:w-[30%] lg:h-[650px] lg:w-[25%] ${id === 2 && 'shadow-lg'}`}
-                        >
-                            <div className="w-full">
-                                <div className="w-full border-b-[1px] border-stone-300 pb-4 text-left">
-                                    <h4 className="text-sm text-primaryColor">
-                                        You Pay
-                                    </h4>
-                                    <h3 className="mb-[2px] text-sm text-primaryColor">
-                                        <span className="text-xl font-bold">
-                                            AED {price}
-                                        </span>
-                                        /month
-                                    </h3>
-                                    <p className="text-xs">
-                                        For 12 months + 5% VAT
-                                    </p>
-                                </div>
-                                <div className="w-full border-b-[1px] border-stone-300 pb-3 pt-3 text-left">
-                                    <p className="text-sm text-secondaryColor">
-                                        You Get
-                                    </p>
-                                    <h3 className="mb-[2px] text-xl font-bold tracking-[0.25px] text-secondaryColor">
-                                        Power Plan {plan}
-                                    </h3>
-                                </div>
+        <div>
+            <div className="flex h-full w-full flex-col items-center">
+                <div
+                    id="slider"
+                    className="du_container scroll scrollbar-hide flex h-full w-full items-start gap-6 overflow-x-scroll scroll-smooth px-2 pb-6"
+                >
+                    {powerPlans.map(
+                        (
+                            {
+                                id,
+                                price,
+                                plan,
+                                data,
+                                dataPromotion,
+                                dataType,
+                                minutes,
+                                minutePromotion,
+                                additions,
+                                limitedOffer
+                            },
+                            index
+                        ) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`${id === 2 && 'most-popular'} plan-border relative mt-8 flex h-[650px] w-full min-w-[99%] max-w-[100%] cursor-pointer flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white p-2 py-3 pl-6 pr-5 text-center duration-300 ease-in-out hover:bg-stone-200 sm:w-[50%] sm:min-w-[300px] md:w-[30%] ${id === 2 && 'shadow-lg'}`}
+                                >
+                                    <div className="w-full">
+                                        <div className="w-full border-b-[1px] border-stone-300 pb-4 text-left">
+                                            <h4 className="text-sm text-primaryColor">
+                                                You Pay
+                                            </h4>
+                                            <h3 className="mb-[2px] text-sm text-primaryColor">
+                                                <span className="text-xl font-bold">
+                                                    AED {price}
+                                                </span>
+                                                /month
+                                            </h3>
+                                            <p className="text-xs">
+                                                For 12 months + 5% VAT
+                                            </p>
+                                        </div>
+                                        <div className="w-full border-b-[1px] border-stone-300 pb-3 pt-3 text-left">
+                                            <p className="text-sm text-secondaryColor">
+                                                You Get
+                                            </p>
+                                            <h3 className="mb-[2px] text-xl font-bold tracking-[0.25px] text-secondaryColor">
+                                                Power Plan {plan}
+                                            </h3>
+                                        </div>
 
-                                <div className="w-full border-b-[1px] border-stone-300 pb-3 pt-3 text-left">
-                                    {dataPromotion !== '' ? (
-                                        <p className="text-sm">
-                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[45%] after:h-[1px] after:w-full after:rotate-[25deg] after:bg-gray-300">
-                                                {data}
-                                            </span>
-                                            <span className="pr-2 text-xl font-bold text-black">
-                                                {dataPromotion === 'Unlimited'
-                                                    ? dataPromotion
-                                                    : `${dataPromotion} GB`}
-                                            </span>
-                                            {dataType}
-                                        </p>
-                                    ) : (
-                                        <p className="text-sm">
-                                            <span className="pr-4 text-xl font-bold text-black">
-                                                {data} GB
-                                            </span>
-                                            {dataType}
-                                        </p>
-                                    )}
+                                        <div className="w-full border-b-[1px] border-stone-300 pb-3 pt-3 text-left">
+                                            {dataPromotion !== '' ? (
+                                                <p className="text-sm">
+                                                    <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[45%] after:h-[1px] after:w-full after:rotate-[25deg] after:bg-gray-300">
+                                                        {data}
+                                                    </span>
+                                                    <span className="pr-2 text-xl font-bold text-black">
+                                                        {dataPromotion ===
+                                                        'Unlimited'
+                                                            ? dataPromotion
+                                                            : `${dataPromotion} GB`}
+                                                    </span>
+                                                    {dataType}
+                                                </p>
+                                            ) : (
+                                                <p className="text-sm">
+                                                    <span className="pr-4 text-xl font-bold text-black">
+                                                        {data} GB
+                                                    </span>
+                                                    {dataType}
+                                                </p>
+                                            )}
 
-                                    {minutePromotion !== '' ? (
-                                        <p className="text-sm">
-                                            <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[50%] after:h-[1px] after:w-full after:rotate-[15deg] after:bg-gray-300">
-                                                {minutes}
-                                            </span>
-                                            <span className="pr-4 text-xl font-bold text-black">
-                                                {minutePromotion}
-                                            </span>
-                                            Flexi minutes
-                                        </p>
-                                    ) : (
-                                        <p className="text-sm">
-                                            <span className="pr-4 text-xl font-bold text-black">
-                                                {minutes}
-                                            </span>
-                                            Flexi minutes
-                                        </p>
-                                    )}
-                                </div>
+                                            {minutePromotion !== '' ? (
+                                                <p className="text-sm">
+                                                    <span className="relative pr-1 text-xl text-gray-300 after:absolute after:left-0 after:top-[50%] after:h-[1px] after:w-full after:rotate-[15deg] after:bg-gray-300">
+                                                        {minutes}
+                                                    </span>
+                                                    <span className="pr-4 text-xl font-bold text-black">
+                                                        {minutePromotion}
+                                                    </span>
+                                                    Flexi minutes
+                                                </p>
+                                            ) : (
+                                                <p className="text-sm">
+                                                    <span className="pr-4 text-xl font-bold text-black">
+                                                        {minutes}
+                                                    </span>
+                                                    Flexi minutes
+                                                </p>
+                                            )}
+                                        </div>
 
-                                <ul className="w-full pb-4 pt-3 text-left">
-                                    {additions.map((addition, index) => (
-                                        <li
-                                            key={index}
-                                            className="flex items-center justify-start gap-1 pb-4 text-sm last:pb-0"
-                                        >
-                                            <Image
-                                                src={Tick}
-                                                alt="Tick"
-                                                className="w-4"
-                                            />
-                                            {addition}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="w-full">
-                                {limitedOffer && (
-                                    <div className="w-full border-t-[1px] border-stone-300 pb-4 pt-3 text-left">
-                                        <p className="mb-1 mt-1 w-full max-w-[120px] rounded-lg bg-gradient-to-r from-[#652caa] via-[#c700b1] to-[#c700b1] px-1 pt-[1px] text-center text-xs text-white">
-                                            Limited time offer
-                                        </p>
-                                        <p className="pt-1 text-sm">
-                                            <span className="font-semibold">
-                                                The Entertainer
-                                            </span>{' '}
-                                            on us for 12 months
-                                        </p>
+                                        <ul className="w-full pb-4 pt-3 text-left">
+                                            {additions.map(
+                                                (addition, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="flex items-center justify-start gap-1 pb-4 text-sm last:pb-0"
+                                                    >
+                                                        <Image
+                                                            src={Tick}
+                                                            alt="Tick"
+                                                            className="w-3"
+                                                        />
+                                                        {addition}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
                                     </div>
-                                )}
-                                <div className="flex w-full items-center justify-between gap-2 border-t-[1px] border-stone-300 pt-3">
-                                    <a
-                                        href="#"
-                                        className="text-sm text-black underline"
-                                    >
-                                        What you get
-                                    </a>
-                                    <button className="rounded-md border-[1px] border-stone-300 px-11 py-2 text-primaryColor transition ease-in-out hover:bg-primaryColor hover:text-white">
-                                        Select
-                                    </button>
+                                    <div className="w-full">
+                                        {limitedOffer && (
+                                            <div className="w-full border-t-[1px] border-stone-300 pb-4 pt-3 text-left">
+                                                <p className="mb-1 mt-1 w-full max-w-[120px] rounded-lg bg-gradient-to-r from-[#652caa] via-[#c700b1] to-[#c700b1] px-1 pt-[1px] text-center text-xs text-white">
+                                                    Limited time offer
+                                                </p>
+                                                <p className="pt-1 text-sm">
+                                                    <span className="font-semibold">
+                                                        The Entertainer
+                                                    </span>{' '}
+                                                    on us for 12 months
+                                                </p>
+                                            </div>
+                                        )}
+                                        <div className="flex w-full items-center justify-between gap-2 border-t-[1px] border-stone-300 pt-3">
+                                            <a
+                                                href="#"
+                                                className="text-sm text-black underline"
+                                            >
+                                                What you get
+                                            </a>
+                                            <button className="rounded-md border-[1px] border-stone-300 px-11 py-2 text-primaryColor transition ease-in-out hover:bg-primaryColor hover:text-white">
+                                                Select
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )
-                )}
+                            )
+                        }
+                    )}
+                </div>
             </div>
-
-            <div className="mt-4 flex items-center justify-center gap-2">
-                {numbersPowerPlans.map((number, index) => (
+            <div className="mt-4 flex w-full items-center justify-center gap-2">
+                {numbersPowerPlans.map((number) => (
                     <button
-                        key={index}
-                        onClick={() => changeCurrentPage(number)}
-                        className={`mt-6 flex items-center justify-center rounded-full transition-all ${
+                        key={number}
+                        className={`h-[10px] w-[10px] rounded-full transition-all ${
                             currentPage === number
-                                ? 'h-[10px] w-[10px] bg-primaryColor'
-                                : 'h-[7px] w-[7px] bg-primaryColor opacity-50'
+                                ? 'bg-primaryColor'
+                                : 'h-[8px] w-[8px] bg-primaryColor opacity-50'
                         }`}
+                        onClick={() => changeCurrentPage(number)}
                     />
                 ))}
             </div>

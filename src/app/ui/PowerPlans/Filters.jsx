@@ -22,6 +22,7 @@ function Filters({ isHidden, setIsHidden }) {
                             value="flexi"
                             checked={selectedMinutes === 'flexi'}
                             onChange={(e) => setSelectedMinutes(e.target.value)}
+                            className="h-5 w-5"
                         />
                         Flexi minutes (national & int&apos;l)
                     </label>
@@ -35,6 +36,7 @@ function Filters({ isHidden, setIsHidden }) {
                             id="national_minutes"
                             name="national_minutes"
                             value="national"
+                            className="h-5 w-5"
                             checked={selectedMinutes === 'national'}
                             onChange={(e) => setSelectedMinutes(e.target.value)}
                         />
@@ -51,6 +53,7 @@ function Filters({ isHidden, setIsHidden }) {
                             id="12_month_contract"
                             name="contract"
                             value="12_month"
+                            className="h-5 w-5"
                             checked={selectedContract === '12_month'}
                             onChange={(e) =>
                                 setSelectedContract(e.target.value)
@@ -68,6 +71,7 @@ function Filters({ isHidden, setIsHidden }) {
                             id="no_contract"
                             name="contract"
                             value="no_contract"
+                            className="h-5 w-5"
                             checked={selectedContract === 'no_contract'}
                             onChange={(e) =>
                                 setSelectedContract(e.target.value)

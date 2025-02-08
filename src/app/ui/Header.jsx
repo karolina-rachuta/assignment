@@ -20,11 +20,11 @@ function Header() {
     return (
         <header className="flex w-full flex-col items-center">
             <div className="du_nav flex items-center justify-center">
-                <div className="du_container du_nav-top flex w-full items-center justify-between p-2 text-white">
+                <div className="du_container du_nav-top flex w-full items-center justify-between p-2 px-2 text-[13px] font-[600] text-white md:px-4 lg:px-2">
                     <div className="flex items-center justify-between gap-3">
                         <a
                             href=""
-                            className={`${isConsumerWebsite ? 'active' : 'opacity-50'} pl-2`}
+                            className={`${isConsumerWebsite ? 'active' : 'opacity-80'} pl-2`}
                             onClick={(e) => {
                                 e.preventDefault()
                                 setIsConsumerWebsite(true)
@@ -34,7 +34,7 @@ function Header() {
                         </a>
                         <a
                             href=""
-                            className={`${!isConsumerWebsite ? 'active' : 'opacity-50'}`}
+                            className={`${!isConsumerWebsite ? 'active' : 'opacity-80'}`}
                             onClick={(e) => {
                                 e.preventDefault()
                                 setIsConsumerWebsite(false)
@@ -61,11 +61,11 @@ function Header() {
                 </div>
             </div>
 
-            <div className="du_nav-bottom du_container flex w-full flex-col items-center justify-between gap-6 lg:flex-row lg:justify-start">
-                <div className="flex w-full items-center justify-between gap-2 p-2 pt-5 lg:w-12 lg:pt-2">
-                    <Link href="https://du.ae/">
+            <div className="du_nav-bottom du_container flex w-full flex-col items-center justify-between gap-6 text-[15px] font-[500] lg:flex-row lg:justify-start lg:gap-10">
+                <div className="flex w-full items-center justify-between gap-2 px-2 pt-5 md:px-4 lg:w-12 lg:px-2 lg:pt-0">
+                    <Link href="#">
                         <Image
-                            className="max-h-autp max-w-[40px] lg:max-w-[50px]"
+                            className="max-h-auto max-w-[40px] lg:max-w-[50px]"
                             src={Logo}
                             alt="Logo du"
                             width="50"
@@ -83,7 +83,7 @@ function Header() {
                         />
                     ) : (
                         <div
-                            className="hamburger cursor-pointer lg:hidden"
+                            className="hamburger cursor-pointer px-2 md:px-4 lg:hidden lg:px-2"
                             onClick={handleMenu}
                         >
                             <span className="hamburger-line"></span>

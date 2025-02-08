@@ -29,6 +29,9 @@ body {
     .text-shadow {
         text-shadow: 2px 2px #8d007c;
     }
+    .open_sans {
+        font-family: 'open_sans', sans-serif;
+    }
 }
 
 @layer components {
@@ -163,7 +166,8 @@ body {
 
     .desktop-link {
         border-bottom: 2px solid transparent;
-        padding: 0;
+        padding-bottom: 3px;
+        padding-top: 3px;
         width: auto;
     }
 
@@ -248,16 +252,13 @@ body {
     background: white;
     position: absolute;
     display: inline-block;
-    height: 93%;
-    width: 98.5%;
-    top: 1.85px;
-    left: 1.85px;
-    border-radius: 4px;
+    margin: 2px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
     z-index: -1;
-
-    @media screen and (max-width: 680px) {
-        height: 97%;
-    }
 }
 
 @media screen and (max-width: 602px) {
@@ -281,4 +282,13 @@ body {
     z-index: 1;
     left: 0;
     top: 0;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.most-popular::after {
+    content: 'Most popular';
+    @apply absolute left-[9px] top-[-28px] rounded-t-xl bg-blue-950 px-7 py-1 text-center text-[13px] font-semibold text-white;
 }

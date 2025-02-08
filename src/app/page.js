@@ -4,7 +4,7 @@ import Offers from './ui/Offers'
 import PowerPlan from './ui/PowerPlan'
 import PhoneOffer from './ui/PhoneOffer'
 import Reasons from './ui/Reasons'
-import FAQs from './ui/FAQs'
+import Faqs from './ui/Faqs'
 import Terms from './ui/Terms'
 import Footer from './ui/Footer'
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
                 <PowerPlan />
                 <PhoneOffer />
                 <Reasons />
-                <FAQs />
+                <Faqs />
                 <Terms />
             </main>
             <Footer />

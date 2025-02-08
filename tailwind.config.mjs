@@ -22,6 +22,6 @@ export default {
                 tertiaryColor: 'var(--tertiary-color)'
             }
         },
-        plugins: []
+        plugins: [],
     }
 }

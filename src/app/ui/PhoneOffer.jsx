@@ -5,7 +5,7 @@ import Arrow from '@/../public/images/arrow_right.png'
 function PhoneOffer() {
     return (
         <section className="w-full border-b-[1px] border-stone-300 bg-stone-100">
-            <div className="du_container justyfy-start flex flex-col items-center gap-3 px-2 py-12 sm:flex-row">
+            <div className="du_container justyfy-start flex flex-col items-center gap-3 px-2 py-12 sm:flex-row md:px-4 lg:px-2">
                 <h4 className="text-[17px] font-bold">
                     Need a phone with a plan?
                 </h4>

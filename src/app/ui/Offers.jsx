@@ -5,7 +5,7 @@ import OfferBonuses from './Offers/OfferBonuses'
 
 function Offers() {
     return (
-        <section className="w-full pb-4 shadow-md shadow-stone-100 sm:shadow-lg">
+        <section className="mb-2 w-full pb-4 shadow-md shadow-stone-100 sm:shadow-lg">
             <OffersNavigation />
             <OffersOption />
             <OfferBonuses />
