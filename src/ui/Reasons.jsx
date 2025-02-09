@@ -58,9 +58,12 @@ function Reasons() {
                                 We&apos;re transparent about your plan terms,
                                 <br />
                                 fees and cancellation.{' '}
-                                <span className="font-[500] text-primaryColor underline">
+                                <a
+                                    href="#"
+                                    className="font-[500] text-primaryColor underline"
+                                >
                                     Read the fine print.
-                                </span>
+                                </a>
                             </p>
                         </div>
                     </div>

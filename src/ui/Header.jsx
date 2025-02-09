@@ -33,7 +33,7 @@ function Header() {
                             Consumer
                         </a>
                         <a
-                            href=""
+                            href="#"
                             className={`${!isConsumerWebsite ? 'active' : 'opacity-80'}`}
                             onClick={(e) => {
                                 e.preventDefault()
@@ -44,7 +44,7 @@ function Header() {
                         </a>
                     </div>
                     <div className="m-2 flex items-center justify-between gap-6">
-                        <a href="">
+                        <a href="#">
                             <Image
                                 src={Magnifier}
                                 alt="Search"
@@ -53,10 +53,10 @@ function Header() {
                                 height="40"
                             />
                         </a>
-                        <a href="">
+                        <a href="#">
                             <span className="text-xs">A</span>A
                         </a>
-                        <a href=""> عربى</a>
+                        <a href="#"> عربى</a>
                     </div>
                 </div>
             </div>
@@ -96,48 +96,48 @@ function Header() {
                     className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu w-full flex-col items-center justify-between gap-10 lg:flex lg:flex-row`}
                 >
                     <div className="order-2 flex w-full flex-col items-center justify-between text-center lg:order-1 lg:w-[50%] lg:flex-row lg:gap-1">
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Devices
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Mobile Plans
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Internet & TV
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Smart Home
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Why du
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a href="#" className="mobile-link lg:desktop-link">
                             Help
                         </a>
                     </div>
 
                     <div className="order-1 flex w-full flex-col items-center justify-between text-center lg:order-2 lg:m-2 lg:w-[38%] lg:flex-row lg:gap-1">
                         <a
-                            href=""
+                            href="#"
                             className="mobile-link lg:desktop-link order-3 lg:order-1"
                         >
                             Quick Pay
                         </a>
                         <a
-                            href=""
+                            href="#"
                             className="mobile-link lg:desktop-link order-4 lg:order-2"
                         >
                             Rechange
                         </a>
                         <a
-                            href=""
+                            href="#"
                             className="mobile-link lg:desktop-link order-5 lg:order-3"
                         >
                             Renew ID
                         </a>
 
                         <a
-                            href=""
+                            href="#"
                             className="mobile-link lg:desktop-link order-2 flex justify-start lg:hidden"
                         >
                             <Image
@@ -150,7 +150,7 @@ function Header() {
                         </a>
 
                         <a
-                            href=""
+                            href="#"
                             className="lg:desktop-link basket-icon relative hidden duration-300 ease-in-out hover:animate-bounce hover:border-b-transparent lg:order-4 lg:block"
                         >
                             <Image

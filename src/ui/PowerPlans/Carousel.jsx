@@ -95,12 +95,13 @@ const powerPlans = [
 function Carousel() {
     const [currentPage, setCurrentPage] = useState(1)
     const [recordsPerPage, setRecordsPerPage] = useState(getRecordsPerPage())
-    const slider = document.getElementById('slider')
+
     useEffect(() => {
-        if (typeof window !== 'undefined') {
+        if (window && typeof window !== 'undefined') {
             const handleResize = () => {
                 setRecordsPerPage(getRecordsPerPage())
             }
+
             window.addEventListener('resize', handleResize)
             return () => window.removeEventListener('resize', handleResize)
         }
@@ -125,7 +126,7 @@ function Carousel() {
     }, [currentPage])
 
     function getRecordsPerPage() {
-        if (window !== 'undefined') {
+        if (window && typeof window !== 'undefined') {
             const width = window.innerWidth
             if (width <= 680) return 1
             if (width <= 698) return 2
@@ -133,6 +134,7 @@ function Carousel() {
             if (width > 1141) return 4
             return 4
         }
+        return 4
     }
 
     const numberOfPages = Math.ceil(powerPlans.length / recordsPerPage)
@@ -150,10 +152,8 @@ function Carousel() {
         } else if (number > currentPage) {
             slider.scrollLeft += scrollAmount
         }
-
         setCurrentPage(number)
     }
-
     return (
         <div>
             <div className="flex h-full w-full flex-col items-center">

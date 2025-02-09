@@ -176,10 +176,8 @@ body {
     }
 }
 
-/* Hero */
-
 .hero-bg-image {
-    background-image: url(../../public/images/bg-mobile.webp);
+    background-image: url(/images/bg-mobile.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 80% center;
@@ -188,7 +186,7 @@ body {
     min-height: 350px;
 
     @media screen and (min-width: 650px) {
-        background-image: url(../../public/images/bg.webp);
+        background-image: url(/images/bg.webp);
         background-position: 50% center;
     }
 }
@@ -216,6 +214,9 @@ body {
     @media screen and (min-width: 768px) {
         width: 180px;
         height: 180px;
+    }
+    @media screen and (min-width: 1160px) {
+        right: -7px;
     }
 }
 
