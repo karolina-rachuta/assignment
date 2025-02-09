@@ -136,16 +136,20 @@ body {
 
     @media (max-width: 1160px) {
         .mobile-link {
-            border-bottom: 1px solid rgba(245, 245, 245, 0.9);
+            border-bottom: 1px solid rgba(245, 245, 245, 0.7);
             width: 100%;
             padding-bottom: 10px;
             padding-top: 10px;
+            text-align: left;
+            font-size: 17px;
+            padding-left: 30px;
+            padding-right: 18px;
         }
         .mobile-link:hover {
             background-color: var(--primary-color);
         }
         .mobile-link:last-child {
-            border-bottom: none;
+            padding-bottom: 10px;
         }
         .mobile-link:first-child {
             padding-top: 10px;

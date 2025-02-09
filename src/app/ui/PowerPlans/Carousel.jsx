@@ -100,12 +100,15 @@ function Carousel() {
         const handleResize = () => {
             setRecordsPerPage(getRecordsPerPage())
         }
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', handleResize)
+            return () => window.removeEventListener('resize', handleResize)
+        }
     }, [])
 
     useEffect(() => {
         const slider = document.getElementById('slider')
+        if (!slider) return
 
         const handleScroll = () => {
             const scrollLeft = slider.scrollLeft
@@ -122,12 +125,14 @@ function Carousel() {
     }, [currentPage])
 
     function getRecordsPerPage() {
-        const width = window.innerWidth
-        if (width <= 680) return 1
-        if (width <= 698) return 2
-        if (width <= 968) return 3
-        if (width > 1141) return 4
-        return 4
+        if (window !== 'undefined') {
+            const width = window.innerWidth
+            if (width <= 680) return 1
+            if (width <= 698) return 2
+            if (width <= 968) return 3
+            if (width > 1141) return 4
+            return 4
+        }
     }
 
     const numberOfPages = Math.ceil(powerPlans.length / recordsPerPage)
@@ -154,7 +159,7 @@ function Carousel() {
             <div className="flex h-full w-full flex-col items-center">
                 <div
                     id="slider"
-                    className="du_container scroll scrollbar-hide flex h-full w-full items-start gap-6 overflow-x-scroll scroll-smooth px-2 pb-6"
+                    className="du_container scroll scrollbar-hide flex h-full w-full snap-x snap-mandatory items-start gap-5 overflow-x-scroll scroll-smooth px-2 pb-6"
                 >
                     {powerPlans.map(
                         (
@@ -175,7 +180,7 @@ function Carousel() {
                             return (
                                 <div
                                     key={index}
-                                    className={`${id === 2 && 'most-popular'} plan-border relative mt-8 flex h-[650px] w-full min-w-[99%] max-w-[100%] cursor-pointer flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white p-2 py-3 pl-6 pr-5 text-center duration-300 ease-in-out hover:bg-stone-200 sm:w-[50%] sm:min-w-[300px] md:w-[30%] ${id === 2 && 'shadow-lg'}`}
+                                    className={`${id === 2 && 'most-popular'} plan-border relative mt-8 flex h-[650px] w-full min-w-[99%] max-w-[100%] cursor-pointer snap-start flex-col items-start justify-between rounded-lg border-[1px] border-stone-200 bg-white p-2 py-3 pl-6 pr-5 text-center duration-300 ease-in-out hover:bg-stone-200 sm:w-[50%] sm:min-w-[300px] md:w-[30%] ${id === 2 && 'shadow-lg'}`}
                                 >
                                     <div className="w-full">
                                         <div className="w-full border-b-[1px] border-stone-300 pb-4 text-left">
@@ -298,7 +303,7 @@ function Carousel() {
                 {numbersPowerPlans.map((number) => (
                     <button
                         key={number}
-                        className={`h-[10px] w-[10px] rounded-full transition-all ${
+                        className={`h-[10px] w-[10px] rounded-full ${
                             currentPage === number
                                 ? 'bg-primaryColor'
                                 : 'h-[8px] w-[8px] bg-primaryColor opacity-50'

@@ -68,8 +68,6 @@ function Header() {
                             className="max-h-auto max-w-[40px] lg:max-w-[50px]"
                             src={Logo}
                             alt="Logo du"
-                            width="50"
-                            height="50"
                         />
                     </Link>
                     {isOpen ? (
@@ -119,19 +117,28 @@ function Header() {
                     </div>
 
                     <div className="order-1 flex w-full flex-col items-center justify-between text-center lg:order-2 lg:m-2 lg:w-[38%] lg:flex-row lg:gap-1">
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a
+                            href=""
+                            className="mobile-link lg:desktop-link order-3 lg:order-1"
+                        >
                             Quick Pay
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a
+                            href=""
+                            className="mobile-link lg:desktop-link order-4 lg:order-2"
+                        >
                             Rechange
                         </a>
-                        <a href="" className="mobile-link lg:desktop-link">
+                        <a
+                            href=""
+                            className="mobile-link lg:desktop-link order-5 lg:order-3"
+                        >
                             Renew ID
                         </a>
 
                         <a
                             href=""
-                            className="mobile-link lg:desktop-link flex justify-center lg:hidden"
+                            className="mobile-link lg:desktop-link order-2 flex justify-start lg:hidden"
                         >
                             <Image
                                 src={BasketMobile}
@@ -144,7 +151,7 @@ function Header() {
 
                         <a
                             href=""
-                            className="lg:desktop-link basket-icon relative hidden duration-300 ease-in-out hover:animate-bounce hover:border-b-transparent lg:block"
+                            className="lg:desktop-link basket-icon relative hidden duration-300 ease-in-out hover:animate-bounce hover:border-b-transparent lg:order-4 lg:block"
                         >
                             <Image
                                 src={Basket}
@@ -155,7 +162,10 @@ function Header() {
                             />
                         </a>
 
-                        <a href="" className="mobile-link lg:login-border">
+                        <a
+                            href=""
+                            className="mobile-link lg:login-border order-1 lg:order-5"
+                        >
                             Login
                         </a>
                     </div>

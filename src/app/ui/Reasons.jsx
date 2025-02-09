@@ -5,7 +5,7 @@ import Idea from '@/../public/images/idea.svg'
 function Reasons() {
     return (
         <section className="w-full border-b-[1px] border-stone-300 bg-stone-100 py-6 lg:py-10">
-            <div className="du_container flex flex-col items-start justify-center gap-6 px-2 lg:flex-row">
+            <div className="du_container flex flex-col items-start gap-4 px-2 sm:justify-center lg:flex-row">
                 <div className="flex w-full items-center justify-center gap-3 md:items-start md:justify-center lg:w-auto lg:justify-start">
                     <Image src={Idea} alt="Idea" className="w-[38px]" />
                     <div>
@@ -16,12 +16,12 @@ function Reasons() {
                         </h3>
                     </div>
                 </div>
-                <div className="flex w-full flex-col items-center justify-center gap-6 px-2 md:flex-row md:items-start md:gap-2 lg:w-auto lg:gap-6">
-                    <div className="flex w-full items-center justify-center gap-2 md:w-auto md:items-start md:justify-start">
+                <div className="flex w-full flex-col items-center justify-center gap-6 px-2 md:flex-row md:items-start md:justify-evenly md:gap-2 lg:w-auto lg:justify-center lg:gap-6 lg:px-0">
+                    <div className="flex w-full items-center justify-center gap-3 sm:justify-center sm:gap-2 md:w-auto md:items-start md:justify-start">
                         <p className="open_sans text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                             1
                         </p>
-                        <div>
+                        <div className="w-[283px] text-left sm:w-auto">
                             <h3 className="pb-1 text-base font-semibold">
                                 The network you can trust
                             </h3>
@@ -31,7 +31,7 @@ function Reasons() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex w-full items-center justify-center gap-1 md:w-auto md:items-start md:justify-start">
+                    <div className="flex w-full items-center justify-center gap-3 sm:justify-center sm:gap-2 md:w-auto md:items-start md:justify-start">
                         <p className="open_sans text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                             2
                         </p>
@@ -46,7 +46,7 @@ function Reasons() {
                             </p>
                         </div>
                     </div>
-                    <div className="flex w-full items-center justify-center gap-1 md:w-auto md:items-start md:justify-start">
+                    <div className="flex w-full items-center justify-center gap-3 sm:justify-center sm:gap-2 md:w-auto md:items-start md:justify-start">
                         <p className="open_sans text-[70px] font-[600] leading-[0.7] text-primaryColor opacity-10">
                             3
                         </p>

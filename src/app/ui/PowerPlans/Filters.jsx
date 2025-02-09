@@ -5,12 +5,14 @@ function Filters({ isHidden, setIsHidden }) {
     const [selectedMinutes, setSelectedMinutes] = useState('')
     const [selectedContract, setSelectedContract] = useState('')
     return (
-        <div className="flex flex-col items-start justify-evenly gap-6 sm:flex-row lg:justify-start">
+        <div className="flex flex-col items-start justify-evenly gap-6 sm:mt-3 sm:flex-row md:mt-0 lg:justify-start lg:gap-3">
             <div
-                className={`flex flex-col items-start justify-evenly gap-2 sm:flex-row lg:justify-start lg:gap-6 ${isHidden ? 'hidden' : 'block'}`}
+                className={`order-2 flex flex-col items-start justify-evenly gap-2 px-3 sm:order-1 sm:flex-row md:mt-0 md:px-0 lg:w-[575px] lg:justify-start lg:gap-4 ${isHidden ? 'hidden' : 'block'}`}
             >
-                <p className="pt-1 text-xs text-stone-500">Show plans with:</p>
-                <div className="flex flex-col justify-start gap-2 pr-3 sm:border-r-[1px] sm:border-stone-300">
+                <p className="pb-2 pt-1 text-xs text-stone-500 sm:pb-0">
+                    Show plans with:
+                </p>
+                <div className="flex flex-col justify-start gap-2 border-b-[1px] border-stone-300 pb-4 pr-3 text-sm sm:border-b-0 sm:border-r-[1px] sm:pb-0 sm:text-[12px] md:text-sm lg:w-[265px] lg:pr-4">
                     <label
                         htmlFor="flexi_minutes"
                         className={`flex cursor-pointer gap-2 text-sm ${selectedMinutes === 'flexi' && 'font-bold'}`}
@@ -43,7 +45,7 @@ function Filters({ isHidden, setIsHidden }) {
                         National minutes
                     </label>
                 </div>
-                <div className="flex flex-col justify-start gap-2">
+                <div className="flex flex-col justify-start gap-2 pt-2 sm:pt-0 lg:pl-2">
                     <label
                         className={`flex cursor-pointer gap-2 text-sm ${selectedContract === '12_month' && 'font-bold'}`}
                         htmlFor="12_month_contract"
@@ -82,7 +84,7 @@ function Filters({ isHidden, setIsHidden }) {
                 </div>
             </div>
             <button
-                className="min-w-[100px] border-[1px] border-stone-400 bg-white px-2 py-[1px] text-[13px] text-primaryColor"
+                className="order-1 mx-3 mt-3 min-w-[100px] border-[1px] border-stone-400 bg-white px-2 py-[1px] text-[13px] text-primaryColor sm:order-2 sm:mx-0 sm:mt-0"
                 onClick={() => setIsHidden((prev) => !prev)}
             >
                 {isHidden ? 'Open filters' : 'Hide filters'}
