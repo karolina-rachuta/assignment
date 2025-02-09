@@ -97,10 +97,10 @@ function Carousel() {
     const [recordsPerPage, setRecordsPerPage] = useState(getRecordsPerPage())
     const slider = document.getElementById('slider')
     useEffect(() => {
-        const handleResize = () => {
-            setRecordsPerPage(getRecordsPerPage())
-        }
         if (typeof window !== 'undefined') {
+            const handleResize = () => {
+                setRecordsPerPage(getRecordsPerPage())
+            }
             window.addEventListener('resize', handleResize)
             return () => window.removeEventListener('resize', handleResize)
         }
