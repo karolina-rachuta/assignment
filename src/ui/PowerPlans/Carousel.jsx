@@ -94,20 +94,22 @@ const powerPlans = [
 ]
 function Carousel() {
     const [currentPage, setCurrentPage] = useState(1)
-    const [recordsPerPage, setRecordsPerPage] = useState(getRecordsPerPage())
+    const [recordsPerPage, setRecordsPerPage] = useState(4)
+    const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {
-        if (window && typeof window !== 'undefined') {
-            const handleResize = () => {
-                setRecordsPerPage(getRecordsPerPage())
-            }
-
-            window.addEventListener('resize', handleResize)
-            return () => window.removeEventListener('resize', handleResize)
+        setIsClient(true)
+        setRecordsPerPage(getRecordsPerPage())
+        const handleResize = () => {
+            setRecordsPerPage(getRecordsPerPage())
         }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     useEffect(() => {
+        if (!isClient) return
         const slider = document.getElementById('slider')
         if (!slider) return
 
@@ -126,17 +128,17 @@ function Carousel() {
     }, [currentPage])
 
     function getRecordsPerPage() {
-        if (window && typeof window !== 'undefined') {
-            const width = window.innerWidth
-            if (width <= 680) return 1
-            if (width <= 698) return 2
-            if (width <= 968) return 3
-            if (width > 1141) return 4
-            return 4
-        }
+        if (typeof window === 'undefined') return 4
+        const width = window.innerWidth
+        if (width <= 680) return 1
+        if (width <= 698) return 2
+        if (width <= 968) return 3
+        if (width > 1141) return 4
         return 4
     }
-
+    if (!isClient) {
+        return <div>Loading...</div>
+    }
     const numberOfPages = Math.ceil(powerPlans.length / recordsPerPage)
     const numbersPowerPlans = Array.from({
         length: numberOfPages

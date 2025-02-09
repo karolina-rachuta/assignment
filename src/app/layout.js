@@ -1,5 +1,5 @@
 import { Poppins, Open_Sans } from 'next/font/google'
-import './globals.css'
+import '@/globals.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
 const poppins = Poppins({

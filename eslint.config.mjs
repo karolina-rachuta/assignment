@@ -6,7 +6,8 @@ import tailwindcss from 'eslint-plugin-tailwindcss'
 import reactHooks from 'eslint-plugin-react-hooks'
 import nextjs from '@next/eslint-plugin-next'
 
-export default [{
+export default [
+    {
         ignores: ['node_modules/', 'dist/', '.next/']
     },
     {
@@ -27,10 +28,13 @@ export default [{
             ...typescript.configs.recommended.rules,
             ...prettier.configs.recommended.rules,
             ...nextjs.configs.recommended.rules,
-            'prettier/prettier': ['error', {
-                singleQuote: true,
-                semi: false
-            }],
+            'prettier/prettier': [
+                'error',
+                {
+                    singleQuote: true,
+                    semi: false
+                }
+            ],
             'tailwindcss/classnames-order': 'warn',
             'tailwindcss/no-custom-classname': 'off',
             '@typescript-eslint/no-unused-vars': ['warn'],

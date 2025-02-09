@@ -23,7 +23,7 @@ function Header() {
                 <div className="du_container flex h-[30px] w-full items-center justify-between p-2 px-2 text-[13px] font-[600] text-white md:px-4 lg:px-2">
                     <div className="flex items-center justify-between gap-3">
                         <a
-                            href=""
+                            href="#"
                             className={`${isConsumerWebsite ? 'active' : 'opacity-80'} pl-2`}
                             onClick={(e) => {
                                 e.preventDefault()
@@ -68,6 +68,8 @@ function Header() {
                             className="max-h-auto max-w-[40px] lg:max-w-[50px]"
                             src={Logo}
                             alt="Logo du"
+                            width="50"
+                            height="50"
                         />
                     </Link>
                     {isOpen ? (
@@ -93,7 +95,7 @@ function Header() {
                     )}
                 </div>
                 <nav
-                    className={` ${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu w-full flex-col items-center justify-between gap-10 lg:flex lg:flex-row`}
+                    className={`${isOpen ? 'flex' : 'hidden'} mobile-menu lg:desktop-menu w-full flex-col items-center justify-between gap-10 lg:flex lg:flex-row`}
                 >
                     <div className="order-2 flex w-full flex-col items-center justify-between text-center lg:order-1 lg:w-[50%] lg:flex-row lg:gap-1">
                         <a href="#" className="mobile-link lg:desktop-link">
@@ -163,7 +165,7 @@ function Header() {
                         </a>
 
                         <a
-                            href=""
+                            href="#"
                             className="mobile-link lg:login-border order-1 lg:order-5"
                         >
                             Login
