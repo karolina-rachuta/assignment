@@ -1,10 +1,17 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Filters from './PowerPlans/Filters'
 import Carousel from './PowerPlans/Carousel'
 
 function PowerPlan() {
     const [isHidden, setIsHidden] = useState(false)
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (!isClient) return null
     return (
         <section className="border-b-[1px] border-stone-300 bg-stone-100 pb-8 pt-1">
             <div
